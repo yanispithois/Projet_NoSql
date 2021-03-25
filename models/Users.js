@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const schema   = mongoose.Schema
 
 // https://mongoosejs.com/docs/schematypes.html
-const ContactSchema=new schema({
+const UserSchema=new schema({
     name : { type:String, lowercase: true },
     email: { type:String },
     phone: { type:String }
@@ -21,4 +21,4 @@ const ContactSchema=new schema({
 // });
 
 
-module.exports=Contact=mongoose.model('contact',ContactSchema)
+module.exports=Users=mongoose.model('Users',UserSchema)

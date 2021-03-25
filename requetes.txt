@@ -1,0 +1,6 @@
+Create user:
+POST localhost:5000/users/new {"name": "Jeannette A.", "email": "Mode & Design", "phone": "0602010203"}
+Create Categorie:
+POST localhost:5000/categorie/new {"nom": "Mode & Design"}
+Create projet:
+POST localhost:5000/users/new {"nom": Gamme de parfum", "porteur": "Jim D.", "phone": "10000"}

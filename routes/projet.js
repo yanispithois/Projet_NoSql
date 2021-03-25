@@ -17,8 +17,8 @@ router.post("/projet/new",(req,res)=>{
 })
 
 // sur GET sans id : il s'agit de la récupération de tous les documents
-// localhost:5000/projet/tous
-router.get("/tous",(req,res)=>{
+// localhost:5000/
+router.get("/",(req,res)=>{
     Projet.find()
     .then(projet=>res.send(projet))
     .catch(err=>console.log(err))
@@ -26,7 +26,7 @@ router.get("/tous",(req,res)=>{
 
 // sur GET avec id : il s'agit de la récupération d'un et d'un seul document (s'il existe)
 // localhost:5000/projet/6055c2a61bcfb139a404b3a0
-router.get("/:_id",(req,res)=>{
+router.get("/projet/:_id",(req,res)=>{
     const {_id}=req.params
     Projet.findOne({_id})
       .then(projet=>res.send(projet))
@@ -36,7 +36,7 @@ router.get("/:_id",(req,res)=>{
 
 // sur PUT avec id : l'édition d'un document
 // localhost:5000/contacts/6055c2a61bcfb139a404b3a0
-router.put("/:_id",(req,res)=>{
+router.put("/projet/:_id",(req,res)=>{
     const {_id}=req.params
     const {nom,categorie,porteur,palier}=req.body
     Projet.findOneAndUpdate({_id},{$set:{nom,categorie,porteur,palier}})
@@ -47,7 +47,7 @@ router.put("/:_id",(req,res)=>{
 
 // sur DELETE avec id : la suppression d'un document
 //localhost:5000/contacts/6055c2a61bcfb139a404b3a0
-router.delete("/:_id",(req,res)=>{
+router.delete("/projet/:_id",(req,res)=>{
     const {_id}=req.params
     Projet.findOneAndDelete({_id:_id})
     .then(projet=>res.send("success"))

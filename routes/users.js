@@ -7,13 +7,13 @@ const Users=require('../models/Users')
 
 // sur GET sans id : il s'agit de la récupération de tous les documents
 // localhost:5000/users/
-// [GET] localhost:5000/users/
-router.get("/users",(req,res)=>{
+// [GET] localhost:5000/users/all
+router.get("/users/all",(req,res)=>{
 
     const limit = req.query.limit;
     const {name } = req.query;
-    Contact.find({name})
-    .then(contacts=>res.send(contacts))
+    Users.find({name})
+    .then(users=>res.send(users))
     .catch(err=>console.log(err))
 })
 
@@ -22,11 +22,11 @@ router.get("/users",(req,res)=>{
 // [POST] localhost:5000/contacts
 router.post("/users/new",(req,res)=>{
     const { name,email,phone }=req.body
-    const newContact=new Contact({
+    const newUsers=new Users({
         name,email,phone
     })
-    newContact.save()
-    .then(contacts=>res.send(contacts))
+    newUsers.save()
+    .then(users=>res.send(users))
     .catch(err=>console.log(err))
 })
 
@@ -37,8 +37,8 @@ router.post("/users/new",(req,res)=>{
 router.get("/users/:_id",(req,res)=>{
     const {_id}=req.params
     console.log(req.params);
-    Contact.findOne({_id:_id})
-      .then(contact=>res.send(contact))
+    Users.findOne({_id:_id})
+      .then(users=>res.send(users))
     .catch(err=>console.log(err))
 })
 
@@ -49,8 +49,8 @@ router.put("/users/:_id",(req,res)=>{
     const {_id}=req.params
 
     const {name,email,phone}=req.body
-    Contact.findOneAndUpdate({_id:_id},{name,email,phone})
-    .then(contacts=>res.send("contact Updated"))
+    Users.findOneAndUpdate({_id:_id},{name,email,phone})
+    .then(users=>res.send("user Updated"))
     .catch(err=>console.log(err))
 })
 
@@ -59,7 +59,7 @@ router.put("/users/:_id",(req,res)=>{
 //localhost:5000/contacts/6055c2a61bcfb139a404b3a0
 router.delete("/users/:_id",(req,res)=>{
     const {_id}=req.params
-    Contact.findOneAndDelete({_id:_id})
+    Users.findOneAndDelete({_id:_id})
     .then(contacts=>res.send("success"))
     .catch(err=>console.log(err))
 })

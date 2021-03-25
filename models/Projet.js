@@ -9,4 +9,4 @@ const ProjetSchema=new schema({
     palier:{type:Number}
 })
 
-module.exports=Projet=mongoose.model('projet',ProjetSchema)
+module.exports=projet=mongoose.model('projet',ProjetSchema)

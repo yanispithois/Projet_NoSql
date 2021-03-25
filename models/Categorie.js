@@ -6,4 +6,4 @@ const CategorieSchema=new schema({
     nom:{type:String}
 })
 
-module.exports=Projet=mongoose.model('categorie',CategorieSchema)
+module.exports=Categorie=mongoose.model('categorie',CategorieSchema)
